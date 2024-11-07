@@ -67,6 +67,7 @@ int main(void)
     for (int i = 0; i < index; i++)
         fprintf(f_out, "%d ", nums[i]);
     
+    fprintf(f_out, "\n");
     fclose(f_out);
     return 0;
 }

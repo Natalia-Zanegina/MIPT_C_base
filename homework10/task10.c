@@ -31,6 +31,7 @@ int main(void)
 
     f_out = fopen("out.txt", "w");
     fputs(str_max, f_out);
+    fprintf(f_out, "\n");
     fclose(f_out); 
 
     return 0;

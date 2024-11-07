@@ -24,7 +24,6 @@ int main(void)
     fclose(f_in);
 
     int len1 = strlen(words[0]), len2 = strlen(words[1]);
-
     char res[SIZE] = {0};
     int index = 0;
     for (int i = 0; i < len1; i++)
@@ -35,30 +34,28 @@ int main(void)
             if (i!=j && (words[0][i] == words[0][j]))
                 same++;
         }
-        // printf("same = %d, this is %c\n", same, words[0][i]);
+        
         int count = 0;
         for (int j = 0; j < len2; j++)
         {
             if (!same && (words[0][i] == words[1][j]))
                 count++;
         }
-
-        // printf("count = %d\n", count);
     
         if (count == 1)
         {
             res[index] = words[0][i];
             index++;    
         }
-          
     }
 
-    for (size_t i = 0; i < index-1; i++)
+
+    for (size_t i = 0; i < SIZE-1; i++)
     {
         
-        for (size_t j = i + 1; j < index; j++)
+        for (size_t j = i + 1; j < SIZE; j++)
         {
-            if (res[j] < res[i])
+            if ((res[j] < res[i]) && res[j] != 0)
             {
                 char temp = res[i];
                 res[i] = res[j];
@@ -67,12 +64,10 @@ int main(void)
         }  
     }
 
-    // printf("index = %d\n", index);
-
     f_out = fopen("out.txt", "w");
     for (int i = 0; i < index; i++)
-    {
         fprintf(f_out, "%c ", res[i]);
-    }
+        
+    fprintf(f_out, "\n");
     fclose(f_out);   
 }

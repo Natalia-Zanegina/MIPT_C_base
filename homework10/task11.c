@@ -28,7 +28,8 @@ int main(void)
     fclose(f_in);
 
     f_out = fopen("out.txt", "w");
-    fprintf(f_out, "%d", count);
+    fprintf(f_out, "%d\n", count);
+    fprintf(f_out, "\n");
     fclose(f_out);
 
     return 0;

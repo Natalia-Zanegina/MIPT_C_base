@@ -42,6 +42,7 @@ int main(void)
         }
         fprintf(f_out, "%c", letters[i]);
     }
+    fprintf(f_out, "\n");
     fclose(f_out);
     
     
