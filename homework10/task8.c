@@ -12,47 +12,48 @@
 
 int main(void)
 {
-
     FILE *f_in, *f_out;
     
-    int nums[SIZE];
-    int index = 0;
+    int nums[SIZE] = {0};
+    int index = -1;
 
 
-    f_in = fopen("in.txt", "r");
+    f_in = fopen("input.txt", "r");
 
-   char c;
-   int flag = 0, num = 0, order = 1;
+    char c;
+    int flag = 0, num = 0, order = 1;
 
     while ((c = fgetc(f_in)) != EOF)
     {
-        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == ' ')
+        if (c >= '0' && c <= '9')
         {
-            if (flag)
-            {
-                nums[index] = num;
+            if (!flag)
                 index++;
-                flag = 0;
-                num = 0;
-                order = 1;
-            }
-        } 
-        else if (c >= '0' && c <= '9')
-        {
             num = num * order + (c - '0');
             order = 10;
             flag = 1;
         }
-       
+        else 
+        {
+            if (flag)
+            {
+                nums[index] = num;
+                flag = 0;
+                num = 0;
+                order = 1;
+            }
+            
+        }
     }
+
     if (flag)
         nums[index] = num;
 
     fclose(f_in);
     
-    for (int i = 0; i < index - 1; i++)
+    for (int i = 0; i < index; i++)
     {
-        for (int j = i + 1; j < index; j++)
+        for (int j = i + 1; j <= index; j++)
         {
             if (nums[j] < nums[i])
             {
@@ -63,8 +64,8 @@ int main(void)
         }
     }
 
-    f_out = fopen("out.txt", "w");
-    for (int i = 0; i < index; i++)
+    f_out = fopen("output.txt", "w");
+    for (int i = 0; i <= index; i++)
         fprintf(f_out, "%d ", nums[i]);
     
     fprintf(f_out, "\n");

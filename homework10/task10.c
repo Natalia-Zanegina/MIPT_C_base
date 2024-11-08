@@ -14,7 +14,7 @@ int main(void)
     char str[SIZE];
     char str_max[SIZE];
 
-    f_in = fopen("in.txt", "r");
+    f_in = fopen("input.txt", "r");
 
     int max = 0;
 
@@ -29,7 +29,7 @@ int main(void)
            
     fclose(f_in);
 
-    f_out = fopen("out.txt", "w");
+    f_out = fopen("output.txt", "w");
     fputs(str_max, f_out);
     fprintf(f_out, "\n");
     fclose(f_out); 

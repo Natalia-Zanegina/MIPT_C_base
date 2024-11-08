@@ -13,7 +13,7 @@ int main(void)
 
     char letters[SIZE];
 
-    f_in = fopen("in.txt", "r");
+    f_in = fopen("input.txt", "r");
 
     fscanf(f_in, "%[^\n]", letters);
     
@@ -21,7 +21,7 @@ int main(void)
 
     int len = strlen(letters);
 
-    f_out = fopen("out.txt", "w");
+    f_out = fopen("output.txt", "w");
 
     for (int i = 0; i < len; i++)
     {

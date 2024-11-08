@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define SIZE 100
+#define SIZE 101
 #define COUNT 2
 
 int main(void)
@@ -14,7 +14,7 @@ int main(void)
     
     FILE *f_in, *f_out;
 
-    f_in = fopen("in.txt", "r");
+    f_in = fopen("input.txt", "r");
     
     char words[COUNT][SIZE];
 
@@ -23,7 +23,10 @@ int main(void)
            
     fclose(f_in);
 
+    printf("%s\n%s\n", words[0], words[1]);
+
     int len1 = strlen(words[0]), len2 = strlen(words[1]);
+    printf("%d\n%d\n", len1, len2);
     char res[SIZE] = {0};
     int index = 0;
     for (int i = 0; i < len1; i++)
@@ -64,10 +67,11 @@ int main(void)
         }  
     }
 
-    f_out = fopen("out.txt", "w");
+    f_out = fopen("output.txt", "w");
     for (int i = 0; i < index; i++)
         fprintf(f_out, "%c ", res[i]);
-        
+
     fprintf(f_out, "\n");
     fclose(f_out);   
+    return 0;
 }

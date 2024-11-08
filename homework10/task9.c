@@ -16,7 +16,7 @@ int main(void)
     int i = 0;
     char letters[SIZE] = {0};
 
-    f_in = fopen("in.txt", "r");
+    f_in = fopen("input.txt", "r");
 
     while ((c = fgetc(f_in)) != EOF)
     { 
@@ -28,7 +28,7 @@ int main(void)
     }
     fclose(f_in);
 
-    f_out = fopen("out.txt", "w");
+    f_out = fopen("output.txt", "w");
     fputs(letters, f_out);
     fprintf(f_out, "\n");
     fclose(f_out);
