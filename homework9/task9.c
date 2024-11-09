@@ -9,8 +9,7 @@
 void swap_negmax_last(int size, int a[])
 {
     int negmax = 0, index_negmax = -1;
-    int i = 0;
-    while (i < size)
+    for(int i = 0; i < size; i++)
     {
         if (a[i] < 0)
         {
@@ -26,7 +25,6 @@ void swap_negmax_last(int size, int a[])
                 index_negmax = i;
             }
         }
-        i++;
     }
     
     if (index_negmax >= 0)
